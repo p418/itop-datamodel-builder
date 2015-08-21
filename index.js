@@ -1,12 +1,16 @@
-var Extractor = require('./lib/extractor/mysql'), through2 = require('through2'), fs = require('fs');
+var ETB = require('./lib/ETB'),
+	Connection = require('./lib/connection');
 
-var extractor = new Extractor({ database : 'datacenter' , user : 'advim', password : 'advim'});
 
-/**extractor
-	.stream(['sd_category', 'sd_entity'])
-	.pipe(through2.obj(function (chunk, enc, cb)
+var mysql = Connection.get('mysql', { database : 'sakila' , user : 'dngo'});
+
+mysql.autoClose = true;
+mysql.query('select rating, special_features from film limit 1')
+	.then(function(statements)
 	{
-		cb(null, chunk)
-	}))
-	.pipe(fs.createWriteStream('test.json'));
-**/
+		console.log(statements[0].fetchAll());
+	})
+	.catch(console.log);
+
+
+
