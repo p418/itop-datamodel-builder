@@ -1,0 +1,36 @@
+{
+  "name": "actor",
+  "parent": "cmdbAbstractObject",
+  "properties": {
+    "category": "bizmodel,searchable,structure",
+    "abstract": false,
+    "key_type": "autoincrement",
+    "db_table": "actor",
+    "db_key_field": "actor_id",
+    "db_final_class_field": "finalclass",
+    "naming": [],
+    "reconciliation": []
+  },
+  "fields": {
+    "actor_id": {
+      "sql": "actor_id",
+      "default_value": null,
+      "is_null_allowed": true
+    },
+    "first_name": {
+      "sql": "first_name",
+      "default_value": null,
+      "is_null_allowed": true
+    },
+    "last_name": {
+      "sql": "last_name",
+      "default_value": null,
+      "is_null_allowed": true
+    },
+    "last_update": {
+      "sql": "last_update",
+      "default_value": null,
+      "is_null_allowed": true
+    }
+  }
+}

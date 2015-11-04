@@ -1,3 +1,32 @@
-//
-   Created by dngo on 03/11/15.
+doctype xml
+
+mixin items
+    items
+        - var rank=0
+        each attributeName in cls.fields.keys()
+            - var attribute = cls.getField(attributeName)
+            item(id="#{attribute.name}")
+                rank=rank+=10
+
+
+
+itop_design(xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1")
+    classes
+        class(id="#{cls.name}", _delta="define")
+            parent #{cls.parent}
+            properties
+                each propName in cls.properties.keys()
+                    #{propName} #{cls.getProperty(propName)}
+        fields
+            each attributeName in cls.fields.keys()
+                - var attribute = cls.getField(attributeName)
+                field(id="#{attribute.name}", xsi:type="#{attribute.getClass()}", _delta="define")
+                    each attrprop in attribute.properties.keys()
+                        #{attrprop} #{attribute.get(attrprop)}
+        methods/
+        presentation
+            details
+                +items
+            list
+                +items
 

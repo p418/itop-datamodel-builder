@@ -1,6 +1,7 @@
 var Extractor = require('../../lib/extractor'),
 	Transformer = require('../../lib/transformer'),
 	Builder = require('../../lib/builder'),
+	through2 = require('through2'),
 	Util    = require('util');
 
 
