@@ -2,9 +2,13 @@
   "name": "itop-datamodel-builder",
   "version": "1.0.0",
   "description": "Itop datamodel builder : user mysql schema to build datamodel ",
-  "main": "index.js",
+  "main": "itop-datamodel.js",
+  "bin" : {
+    "itop-datamodel" : "itop-datamodel.js"
+  },
+  "preferGlobal" : true,
   "scripts": {
-    "test": "mocha"
+    "test": "mocha tests.js"
   },
   "repository": {
     "type": "git",
@@ -21,10 +25,13 @@
   },
   "homepage": "https://github.com/p418/itop-datamodel-builder#readme",
   "dependencies": {
+    "chalk": "^1.1.1",
+    "commander": "^2.9.0",
     "from2": "^2.1.0",
     "jade": "^1.11.0",
     "mysql": "^2.8.0",
     "promise": "^7.0.4",
+    "readline-sync": "^1.2.21",
     "string": "^3.3.1",
     "through2": "^2.0.0",
     "vinyl": "^1.1.0",

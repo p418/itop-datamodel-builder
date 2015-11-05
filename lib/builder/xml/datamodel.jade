@@ -16,7 +16,8 @@ itop_design(xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1")
             parent #{cls.parent}
             properties
                 each propName in cls.properties.keys()
-                    #{propName} #{cls.getProperty(propName)}
+                    -var propVal = cls.getProperty(propName).toString()
+                    #{propName} #{popVal}
         fields
             each attributeName in cls.fields.keys()
                 - var attribute = cls.getField(attributeName)

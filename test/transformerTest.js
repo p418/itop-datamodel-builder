@@ -27,7 +27,7 @@ describe('Transformer', function()
 
 			first.getField('actor_id').should.be.instanceOf(AttributeInteger);
 
-			console.log(JSON.stringify(first))		;
+			//console.log(JSON.stringify(first))		;
 		});
 
 	});
