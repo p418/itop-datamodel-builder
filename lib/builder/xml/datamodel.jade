@@ -17,17 +17,22 @@ itop_design(xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.1")
             properties
                 each propName in cls.properties.keys()
                     -var propVal = cls.getProperty(propName).toString()
-                    #{propName} #{popVal}
-        fields
-            each attributeName in cls.fields.keys()
-                - var attribute = cls.getField(attributeName)
-                field(id="#{attribute.name}", xsi:type="#{attribute.getClass()}", _delta="define")
-                    each attrprop in attribute.properties.keys()
-                        #{attrprop} #{attribute.get(attrprop)}
-        methods/
-        presentation
-            details
-                +items
-            list
-                +items
-
+                    #{propName} #{propVal}
+                //naming
+                    attributes
+                        attribute#name
+                //reconciliation
+                    attributes
+                        attribute#name
+            fields
+                each attributeName in cls.fields.keys()
+                    - var attribute = cls.getField(attributeName)
+                    field(id="#{attribute.name}", xsi:type="#{attribute.getClass()}")
+                        each attrprop in attribute.properties.keys()
+                            #{attrprop} #{attribute.get(attrprop)}
+            methods/
+            presentation
+                details
+                    +items
+                list
+                    +items
